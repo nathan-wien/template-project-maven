@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>dev.nathannguyen</groupId>
+  <artifactId>template-project-maven</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <name>template-project-maven</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+          <configuration>
+              <source>11</source>
+              <target>11</target>
+          </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>2.27.1</version>
+        <configuration>
+          <java>
+            <!-- See https://github.com/diffplug/spotless/tree/main/plugin-maven for more details. -->
+            <googleJavaFormat>
+              <version>1.8</version>
+              <style>GOOGLE</style>
+              <reflowLongStrings>true</reflowLongStrings>
+            </googleJavaFormat>
+          </java>
+          <pom>
+            <includes>
+              <include>pom.xml</include>
+            </includes>
+            <sortPom></sortPom>
+          </pom>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
